@@ -423,26 +423,26 @@ function buildBannerForm($type, $aBanner, &$oComponent=null, $formDisabled=false
             }
             $form->addElement('hidden', 'url', $aBanner['url']);
         }
-        $form->addElement('header', 'header_b_display', 'Banner display');
-        $form->addElement('text', 'alt', $GLOBALS['strAlt']);
-        $form->addElement('text', 'statustext', $GLOBALS['strStatusText']);
-        $form->addElement('text', 'bannertext', $GLOBALS['strTextBelow']);
+//        $form->addElement('header', 'header_b_display', 'Banner display');
+//        $form->addElement('text', 'alt', $GLOBALS['strAlt']);
+//        $form->addElement('text', 'statustext', $GLOBALS['strStatusText']);
+//        $form->addElement('text', 'bannertext', $GLOBALS['strTextBelow']);
 
         if (!empty($aBanner['bannerid'])) {
-            $sizeG['width'] = $form->createElement('text', 'width', $GLOBALS['strWidth'].":");
+            $sizeG['width'] = $form->createElement('text', 'width', ""  ,array('style' => 'visibility:hidden;position:absolute;pointer-events:none;') );
             $sizeG['width']->setAttribute('onChange', 'oa_sizeChangeUpdateMessage("warning_change_banner_size");');
             $sizeG['width']->setSize(5);
 
-            $sizeG['height'] = $form->createElement('text', 'height', $GLOBALS['strHeight'].":");
+            $sizeG['height'] = $form->createElement('text', 'height', "" ,array('style' => 'visibility:hidden;position:absolute;pointer-events:none;')  );
             $sizeG['height']->setAttribute('onChange', 'oa_sizeChangeUpdateMessage("warning_change_banner_size");');
             $sizeG['height']->setSize(5);
-            $form->addGroup($sizeG, 'size', $GLOBALS['strSize'], "&nbsp;", false);
+            $form->addGroup($sizeG, 'size', "", "&nbsp;", false);
 
             //validation rules
             $translation = new OX_Translation();
-            $widthRequiredRule = array($translation->translate($GLOBALS['strXRequiredField'], array($GLOBALS['strWidth'])), 'required');
+//          $widthRequiredRule = array($translation->translate($GLOBALS['strXRequiredField'], array($GLOBALS['strWidth'])), 'required');
             $widthPositiveRule = array($translation->translate($GLOBALS['strXGreaterThanZeroField'], array($GLOBALS['strWidth'])), 'min', 1);
-            $heightRequiredRule = array($translation->translate($GLOBALS['strXRequiredField'], array($GLOBALS['strHeight'])), 'required');
+//          $heightRequiredRule = array($translation->translate($GLOBALS['strXRequiredField'], array($GLOBALS['strHeight'])), 'required');
             $heightPositiveRule = array($translation->translate($GLOBALS['strXGreaterThanZeroField'], array($GLOBALS['strHeight'])), 'min', 1);
             $numericRule = array($GLOBALS['strNumericField'] , 'numeric');
 
@@ -516,7 +516,7 @@ function buildBannerForm($type, $aBanner, &$oComponent=null, $formDisabled=false
     if ($oComponent)
     {
         $oComponent->buildForm($form, $aBanner);
-        if ($type == 'html') {
+/*        if ($type == 'html') {
             if ($aBanner['bannerid'] == '') {
                 // Remove the deprecated "url" and "target" form elements; these
                 // are not required for new HTML banners
@@ -532,7 +532,7 @@ function buildBannerForm($type, $aBanner, &$oComponent=null, $formDisabled=false
                     $form->removeElement('target');
                 }
             }
-        }
+        }*/
     }
 
     $translation = new OX_Translation();

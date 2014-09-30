@@ -1,0 +1,81 @@
+<html>
+<head>
+
+<style>
+html,body {
+	width:100%;
+	height:100%;
+	background-color:#ffffff;
+	position:absolute;
+	top:0px;
+	left:0px;
+	overflow:hidden;
+	margin:0px;
+	padding:0px;
+}
+
+.main_iframe {
+	position:relative;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	z-index:100;
+/*	pointer-events:none;
+	opacity:.7*/
+}
+
+* {
+	font-family:arial;
+	font-size:14px;
+}
+
+label span {
+	display:inline-block;
+	width:160px;
+}
+
+#progressTitle {
+    position:absolute;
+    top:10px;
+    left:100%;
+    margin-left:-320px;
+    width:320px;
+    font-size:20px;
+    font-weight:700;
+}
+#progressDisplay {
+    position:absolute;
+    top:100px;
+    left:100%;
+    margin-left:-200px;
+    width:200px;
+    font-size:25px;
+    font-weight:700;
+}
+</style>
+
+<script src="/www/admin/assets/min.php?g=oxp-js"></script>
+
+<script>
+(function() {
+    $(window).bind("message", receiveMessage);
+    function receiveMessage(event) {
+        var data = JSON.parse(event.originalEvent.data)
+        if (data.command === "loadProvisionScript") {
+            $.getScript(data.url);
+            $(window).unbind("message", receiveMessage)
+        }
+        if (data.command === "loadBody") {
+            $("body").html(decodeURIComponent(data.body))
+        }
+    }
+    window.parent.postMessage('{"command":"loadProvisionScript"}',"*");
+})()
+</script>
+
+
+</head>
+<body>
+</body>
+</html>

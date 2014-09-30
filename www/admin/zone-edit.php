@@ -132,8 +132,10 @@ function buildZoneForm($zone, $oComponent = null)
         "<img src='".OX::assetPath()."/images/icon-zone.gif' align='absmiddle'>&nbsp;".$GLOBALS['strBannerButtonRectangle'],
         phpAds_ZoneBanner, array('id' => 'delivery-b',
             'onClick' => 'phpAds_formEnableSize();',
-            'onChange' => 'oa_hide("warning_change_zone_type");'));
-    if ($conf['oxInvocationTags']['isAllowedAdlayer'] || $zone['delivery'] == phpAds_ZoneInterstitial) {
+            'onChange' => 'oa_hide("warning_change_zone_type");',
+            'style' => 'visibility:hidden;position:absolute;pointer-events:none;'
+            ));
+/*  if ($conf['oxInvocationTags']['isAllowedAdlayer'] || $zone['delivery'] == phpAds_ZoneInterstitial) {
         $zoneTypes[] = $form->createElement('radio', 'delivery', '',
             "<img src='".OX::assetPath()."/images/icon-interstitial.gif' align='absmiddle'>&nbsp;".$GLOBALS['strInterstitial'],
             phpAds_ZoneInterstitial, array('id' => 'delivery-i',
@@ -165,7 +167,7 @@ function buildZoneForm($zone, $oComponent = null)
             OX_ZoneVideoOverlay, array('id' => 'delivery-vo', 'onClick' => 'phpAds_formDisableSize();',
                 'onChange' => 'oa_hide("warning_change_zone_type");'));
     }
-    $form->addGroup($zoneTypes, 'zone_types', $GLOBALS['strZoneType'], "<br/>");
+*/  $form->addGroup($zoneTypes, 'zone_types', $GLOBALS['strZoneType'], "<br/>");
 
     //size
     global $phpAds_IAB;
@@ -184,13 +186,13 @@ function buildZoneForm($zone, $oComponent = null)
     }
 
     $aDefaultSize['radio'] = $form->createElement('radio', 'sizetype', '', '',
-        'default', array('id' => 'size-d'));
+        'default', array('id' => 'size-d','style' => 'visibility:hidden;position:absolute;pointer-events:none;'));
     foreach (array_keys($phpAds_IAB) as $key)
     {
         $iabSizes[$phpAds_IAB[$key]['width']."x".$phpAds_IAB[$key]['height']] =
             $GLOBALS['strIab'][$key];
     }
-    $iabSizes['-'] = $GLOBALS['strCustom'];
+//  $iabSizes['-'] = $GLOBALS['strCustom'];
     $aDefaultSize['select'] = $form->createElement('select', 'size', null, $iabSizes,
         array('onchange' => 'phpAds_formSelectSize(this); oa_sizeChangeUpdateMessage("warning_change_zone_size");', 'class' => 'medium'));
 
@@ -208,7 +210,7 @@ function buildZoneForm($zone, $oComponent = null)
     $aCustomSize['height']->setSize(5);
 
     $sizeTypes['default'] = $form->createElement('group', 'defaultSizeG', null, $aDefaultSize, null, false);
-    $sizeTypes['custom'] = $form->createElement('group', 'customSizeG', null, $aCustomSize, null, false);
+//    $sizeTypes['custom'] = $form->createElement('group', 'customSizeG', null, $aCustomSize, null, false);
 
     //disable fields if necessary
     if ($sizeDisabled) {

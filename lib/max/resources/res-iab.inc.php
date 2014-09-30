@@ -10,6 +10,14 @@
 +---------------------------------------------------------------------------+
 */
 
+$phpAds_IAB['Mobile Fullscreen (320 x 352)'] 		 	= array ('width' => 320, 'height' => 352);
+$phpAds_IAB['Mobile Fullscreen HighDPI (750 x 920)'] 		 	= array ('width' => 750, 'height' => 920);
+
+$phpAds_IAB['Mobile Playlist (320 x 100)'] 		 	= array ('width' => 320, 'height' => 100);
+$phpAds_IAB['Mobile Playlist HighDPI (750 x 213)'] 		 	= array ('width' => 750, 'height' => 213);
+
+
+/*
 $phpAds_IAB['IAB_FullBanner(468x60)'] 		 	= array ('width' => 468, 'height' => 60);
 $phpAds_IAB['IAB_Skyscraper(120x600)'] 		   	= array ('width' => 120, 'height' => 600);
 $phpAds_IAB['IAB_Leaderboard(728x90)'] 		 	= array ('width' => 728, 'height' => 90);
@@ -27,5 +35,6 @@ $phpAds_IAB['IAB_SquarePop-up(250x250)'] 	   	= array ('width' => 250, 'height' 
 $phpAds_IAB['IAB_WideSkyscraper(160x600)*']     = array ('width' => 160, 'height' => 600);
 $phpAds_IAB['IAB_Pop-Under(720x300)']           = array ('width' => 720, 'height' => 300);
 $phpAds_IAB['IAB_3:1Rectangle(300x100)']        = array ('width' => 300, 'height' => 100);
+*/
 
 ?>

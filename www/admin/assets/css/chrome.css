@@ -726,7 +726,9 @@ body.hasGradient #firstLevelContent {
 }
 
 .hasGradient #secondLevelContent {
-  padding: 12px 12px 12px 12px;
+ /* padding: 12px 12px 12px 12px;*/
+    padding-top:12px;
+    padding-left:12px;
 }
 
 .hasSidebar #secondLevelContent {

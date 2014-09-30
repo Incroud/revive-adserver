@@ -1147,7 +1147,7 @@ function MAX_displayAcls($acls, $aParams)
     $conf = $GLOBALS['_MAX']['CONF'];
 
     echo "<form action='{$page}' method='post'>";
-
+/*
     echo "<label><img src='" . OX::assetPath() . "/images/icon-acl-add.gif' align='absmiddle'>&nbsp;". $GLOBALS['strACLAdd'] .": &nbsp;";
     echo "<select name='type' accesskey='{$GLOBALS['keyAddNew']}' tabindex='".($tabindex++)."'>";
 
@@ -1161,7 +1161,7 @@ function MAX_displayAcls($acls, $aParams)
     echo "</select></label>";
     echo "&nbsp;";
     echo "<input type='submit' class='flat' name='action[new]' value='" . $GLOBALS['strAdd'] . "'";
-
+*/
     phpAds_ShowBreak();
     echo "<br />";
     $aErrors = OX_AclCheckInputsFields($acls, $page);
@@ -1190,7 +1190,7 @@ function MAX_displayAcls($acls, $aParams)
     foreach ($aParams as $name => $value) {
         echo "<input type='hidden' name='{$name}' value='{$value}' />";
     }
-    echo "<table border='0' width='100%' cellpadding='0' cellspacing='0'>";
+/*  echo "<table border='0' width='100%' cellpadding='0' cellspacing='0'>";
     echo "<tr><td height='25' colspan='4' bgcolor='#FFFFFF'><b>{$GLOBALS['strDeliveryLimitations']}</b></td></tr>";
     echo "<tr><td height='1' colspan='4' bgcolor='#888888'><img src='" . OX::assetPath() . "/images/break.gif' height='1' width='100%'></td></tr>";
 
@@ -1229,6 +1229,7 @@ function MAX_displayAcls($acls, $aParams)
     echo "</td></tr>";
 
     echo "</table>";
+*/
 }
 
 function MAX_displayChannels($channels, $aParams) {

@@ -886,6 +886,12 @@ $GLOBALS['strInventoryForecasting']         = 'Inventory Forecasting';
 $GLOBALS['strZonesOfWebsite']               = 'in'; //this is added between page name and website name eg. 'Zones in www.example.com'
 $GLOBALS['strBackToZones']                  = "Back to zones";
 
+
+$GLOBALS['strIab']['Mobile Fullscreen (320 x 352)'] 		 =  'Mobile Fullscreen (320 x 352)';
+$GLOBALS['strIab']['Mobile Fullscreen HighDPI (750 x 920)']  =  'Mobile Fullscreen HighDPI (750 x 920)';
+$GLOBALS['strIab']['Mobile Playlist (320 x 100)'] 		 	 =  'Mobile Playlist (320 x 100)';
+$GLOBALS['strIab']['Mobile Playlist HighDPI (750 x 213)']	 =  'Mobile Playlist HighDPI (750 x 213)';
+
 $GLOBALS['strIab']['IAB_FullBanner(468x60)']         = "IAB Full Banner (468 x 60)";
 $GLOBALS['strIab']['IAB_Skyscraper(120x600)']        = "IAB Skyscraper (120 x 600)";
 $GLOBALS['strIab']['IAB_Leaderboard(728x90)']        = "IAB Leaderboard (728 x 90)";

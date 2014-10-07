@@ -387,6 +387,11 @@ class OA_Permission
         $translated_message = $translation->translate ( $GLOBALS['strYouAreNowWorkingAsX'], array( htmlspecialchars($oUser->aAccount['account_name']) ));
         OA_Admin_UI::queueMessage($translated_message, 'global', 'info', null, 'switchAccount');
     }
+
+    public static function hasAdminAccess()
+    {
+        return  self::hasAccess(1);
+    }
     
 
     /**

@@ -82,6 +82,7 @@ $oTpl->assign('phpAds_ZonePopup',           phpAds_ZonePopup);
 $oTpl->assign('phpAds_ZoneText'.            phpAds_ZoneText);
 $oTpl->assign('showAdDirect', (defined('OA_AD_DIRECT_ENABLED') && OA_AD_DIRECT_ENABLED === true) ? true : false);
 
+$oTpl->assign('hasAdminAccess', OA_Permission::hasAdminAccess());
 
 /*-------------------------------------------------------*/
 /* Store preferences                                     */

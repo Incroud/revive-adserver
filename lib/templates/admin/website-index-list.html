@@ -8,10 +8,13 @@
 | License: GPLv2 or later, see the LICENSE.txt file.                        |
 +---------------------------------------------------------------------------+
 
+ if (OA_Permission::isAccount(OA_ACCOUNT_ADMIN)) {}
+
 -->*}
 
 <div class='tableWrapper'>
     <div class='tableHeader'>
+{if $hasAdminAccess}
         <ul class='tableActions'>
             <li>
                 <a href='affiliate-edit.php' class='inlineIcon iconWebsiteAdd'>{t str=AddNewAffiliate}</a>
@@ -43,6 +46,8 @@
                 {/literal}
             </li>
         </ul>
+{/if}
+
 
         {if !empty($topPager->links)}
         <ul class='tableFilters alignRight'>
@@ -129,9 +134,11 @@
                 {/if}
                 <td class='alignRight'>
                     <ul class='rowActions'>
+                        {if $hasAdminAccess}
                         <li>
                             <a href='zone-edit.php?affiliateid={$key}' class='inlineIcon iconZoneAdd'>{t str=AddNewZone}</a>
                         </li>
+                        {/if}
                         <li>
                           <a href='affiliate-zones.php?affiliateid={$key}' class='inlineIcon iconZones'>{t str=Zones}</a>
                         </li>

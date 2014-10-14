@@ -34,7 +34,7 @@
               </a>
           </li>
           {/if}
-          {if $aTools|@count}
+          {if $aTools|@count && $hasAdminAccess}
           <li class='alignRight'>
               {capture assign=linksTitle}{t str=Actions}{/capture}
               {include file=layout/links-container.html aLinks=$aTools title=$linksTitle cssClass=tools}

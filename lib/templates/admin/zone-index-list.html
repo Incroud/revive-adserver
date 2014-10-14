@@ -64,7 +64,9 @@
         <thead>
             <tr>
               <th class='first toggleAll'>
+                  {if $hasAdminAccess}
                   <input type='checkbox' />
+                  {/if}
                 </th>
                 <th class='{ox_column_class item=name order=up default=1}'>
                     {ox_column_title item=name order=up default=1 str=Name url=affiliate-zones.php}
@@ -118,11 +120,13 @@
         {cycle name=bgcolor assign=bgColor}
             <tr class='{$bgColor}'>
               <td class='toggleSelection'>
+                  {if $hasAdminAccess}
                   <input type='checkbox' value='{$zoneId}' />
+                  {/if}
                 </td>
                 <td>
                   {if $canEdit}
-                      <a href='zone-edit.php?affiliateid={$affiliateId}&zoneid={$zoneId}' class='inlineIcon {ox_zone_icon delivery=$zone.delivery active=$zone.active warning=$zone.lowPriorityWarning}'>{$zone.zonename|escape:html}</a>
+                      <a href='{if $hasAdminAccess}zone-edit.php?affiliateid={$affiliateId}&zoneid={$zoneId}{else}zone-advanced.php?affiliateid={$affiliateId}&zoneid={$zoneId}{/if}' class='inlineIcon {ox_zone_icon delivery=$zone.delivery active=$zone.active warning=$zone.lowPriorityWarning}'>{$zone.zonename|escape:html}</a>
                     {else}
                       <span class='inlineIcon {ox_zone_icon delivery=$zone.delivery active=$zone.active warning=$zone.lowPriorityWarning}'>{$zone.zonename|escape:html}</span>
                     {/if}
@@ -135,6 +139,7 @@
                     {$zone.description|escape:html|default:'&nbsp;'}
                 </td>
                 <td class='alignRight'>
+                    {if $hasAdminAccess}
                     <ul class='rowActions'>
                         {if $canLink}
                         <li>
@@ -150,6 +155,7 @@
                         </li>
                         {/if}
                     </ul>
+                    {/if}
                 </td>
             </tr>
     {/foreach}

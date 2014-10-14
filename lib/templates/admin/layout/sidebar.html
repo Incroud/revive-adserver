@@ -19,6 +19,9 @@
         <ul class="navigation">
     {/if}
 
+
+{if ($aLeftMenuNav[n].filename!="website-index.php" && $aLeftMenuNav[n].filename!="affiliate-channels.php" && $aLeftMenuNav[n].filename!="admin-generate.php") || (($aLeftMenuNav[n].filename=="website-index.php" || $aLeftMenuNav[n].filename=="affiliate-channels.php" || $aLeftMenuNav[n].filename=="admin-generate.php") &&  $hasAdminAccess) }
+
     {if $aLeftMenuNav[n].selected}
       <li class="active {if $aLeftMenuNav[n].first} first{/if}{if $aLeftMenuNav[n].last} last{/if}">
     {else}
@@ -49,6 +52,7 @@
           {/if}
 
       </li>
+{/if}
     {if $smarty.section.n.last} {*close nav list*}
     </ul>
     {/if}

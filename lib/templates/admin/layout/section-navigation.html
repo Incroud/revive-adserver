@@ -13,7 +13,13 @@
 {if !empty($aSectionNav)}
     <div id='thirdLevelNavigation'>
     <ul class='navigation'>
+
     {section name=n loop=$aSectionNav}
+
+
+{if ( $hasAdminAccess || ( strpos($aSectionNav[n].filename,'zone-edit.php') === false && strpos($aSectionNav[n].filename,'zone-invocation.php') === false ))}
+
+
       {if $aSectionNav[n].selected}
         <li class="active {if $smarty.section.n.first} first{/if}{if $smarty.section.n.last} last{/if}">
       {else}
@@ -23,6 +29,7 @@
             <a href="{$adminBaseURL}{$aSectionNav[n].filename|escape}" accesskey="{t key=Home}">{$aSectionNav[n].title|escape}</a>
           </div></div>
         </li>
+{/if}
     {/section}
     </ul></div>
 {/if}

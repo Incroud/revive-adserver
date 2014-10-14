@@ -269,6 +269,8 @@ class OA_Admin_UI
         $this->_assignInstalling(); //install indicator
         $this->_assignMessagesAndNotifications(); //messaging system
 
+$this->oTpl->assign('hasAdminAccess', OA_Permission::hasAdminAccess());
+
         //html header
         $this->_assignJavascriptandCSS();
 
